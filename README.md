@@ -1,8 +1,6 @@
 # WebJar Front-End test
 
----
-
-Run in Dev enviroment:
+Run it:
 
 ` yarn dev`
 

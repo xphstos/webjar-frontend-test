@@ -1,0 +1,72 @@
+@use '../../../styles/functions' as *;
+@use '../../../styles/helpers' as *;
+@use "sass:color" as *;
+
+.section {
+	padding: size(64px, 116px, 1440) 0;
+	background-color: v("summer-blue");
+	text-align: center;
+}
+
+.title {
+	margin-bottom: size(48px, 72px, 1440);
+	padding: 0 2rem;
+
+	span {
+		color: v("brand");
+	}
+}
+
+.form {
+	--container: 900px;
+	@extend %container;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-content: stretch;
+	gap: 3rem 2rem;
+
+	@media screen and (max-width: 768px) {
+		--container: 525px;
+		gap: 3rem;
+		grid-template-columns: 1fr;
+	}
+}
+
+.terms {
+	grid-area: auto / span 2;
+
+	@media screen and (max-width: 768px) {
+		grid-area: unset;
+	}
+}
+
+.formFooter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	grid-area: auto / span 2;
+	margin-top: 1rem;
+
+	@media screen and (max-width: 768px) {
+		grid-area: unset;
+		display: block;
+		flex-direction: column;
+		justify-content: center;
+
+		> span {
+			display: block;
+			margin: 1.5rem 0;
+		}
+	}
+
+	> * + * {
+		margin-left: 1.5rem;
+
+		@media screen and (max-width: 768px) {
+			margin: 0;
+		}
+	}
+}

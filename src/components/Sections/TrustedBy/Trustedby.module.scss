@@ -1,0 +1,29 @@
+@use '../../../styles/functions' as *;
+@use '../../../styles/helpers' as *;
+@use "sass:color" as *;
+
+.section {
+	background-color: v("sand-light");
+	padding-bottom: size(32px, 72px, 1440);
+}
+
+.trustedBy {
+	@extend %container;
+	overflow-y: initial;
+
+	[class*="swiper-slide"] {
+		max-inline-size: 200px;
+		inline-size: 100%;
+	}
+}
+
+.logo {
+	opacity: 0.5;
+	// filter: Grayscale(1);
+	// mix-blend-mode: multiply;
+	transition: opacity 0.2s ease;
+
+	&:hover {
+		opacity: 0.75 !important;
+	}
+}

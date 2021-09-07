@@ -1,0 +1,53 @@
+@use '../../../styles/functions' as *;
+
+.eatSection {
+	background: linear-gradient(
+		to bottom,
+		var(--orange-light-gradient-1),
+		var(--orange-light-gradient-2)
+	);
+	padding-bottom: size(32px, 96px, 1440);
+}
+
+.eatHeader {
+	position: relative;
+}
+
+.eatSticker {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	transform: translate(120%, 50%);
+
+	@media screen and (max-width: 1440px) {
+		transform: translate(-320%, 50%);
+	}
+
+	@media screen and (max-width: 768px) {
+		right: unset;
+		left: 0;
+		transform: translate(30%, 50%);
+	}
+
+	&:hover {
+		img {
+			animation-play-state: running;
+		}
+	}
+
+	img {
+		max-inline-size: 6rem;
+		animation: wiggle 0.3s ease-in-out alternate infinite paused;
+		transform: rotate(0deg);
+
+		@media screen and (max-width: 768px) {
+			animation-play-state: running;
+		}
+
+		@keyframes wiggle {
+			to {
+				transform: rotate(10deg);
+			}
+		}
+	}
+}

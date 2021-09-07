@@ -1,0 +1,53 @@
+.giftSection {
+	background: var(--watermelon);
+	position: relative;
+}
+
+.illustration {
+	order: -1;
+
+	@media screen and (max-width: 1440px) {
+		order: initial;
+	}
+}
+
+.giftHeader {
+	@media screen and (max-width: 1440px) {
+		position: relative;
+	}
+}
+
+.giftSticker {
+	position: absolute;
+	top: 0;
+	left: max(2rem, 50vw - 1680px / 2);
+	transform: translate(0, 100%);
+
+	@media screen and (max-width: 1440px) {
+		top: unset;
+		bottom: 0;
+		transform: translate(0, 150%);
+	}
+
+	&:hover {
+		img {
+			animation-play-state: running;
+		}
+	}
+
+	img {
+		max-inline-size: 3.5rem;
+		animation: wiggle 0.3s ease-in-out alternate infinite paused;
+		transform: rotate(0deg);
+
+		@media screen and (max-width: 768px) {
+			animation-play-state: running;
+		}
+
+		@keyframes wiggle {
+			to {
+				transform: rotate(10deg);
+			}
+		}
+	}
+}

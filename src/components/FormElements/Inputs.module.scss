@@ -1,0 +1,157 @@
+@use '../../styles/functions' as *;
+@use '../../styles/helpers' as *;
+@use "sass:color" as *;
+
+.inputField {
+	text-align: left;
+	position: relative;
+}
+
+.label {
+	font-size: 0.75rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 0.75em;
+	display: block;
+	padding: 0 1.25rem;
+}
+
+.input {
+	border: 3px solid var(--text);
+	box-shadow: 0.2em -0.2em 0 0 var(--text);
+	font-family: inherit;
+	background-color: adjust(c("white"), $alpha: -0.2);
+	block-size: 4rem;
+	border-radius: 2rem;
+	font-size: 1.25rem;
+	padding: 0.25rem 1rem;
+	transition: background-color 0.2s ease, box-shadow 0.2s ease;
+	inline-size: min(768px, 100%);
+
+	&:focus {
+		outline: none;
+		background-color: v("white");
+		box-shadow: -0.2em 0.2em 0 0 var(--text);
+	}
+}
+
+.errors {
+	font-size: 0.75rem;
+	color: v("white");
+	margin-top: 0.5em;
+	font-weight: bold;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	inline-size: calc(100% - 3.5rem);
+	padding: 0.25rem 1rem 0.5rem;
+	border-radius: 0 0 1rem 1rem;
+	border: 0.2rem solid v("off-black");
+	box-shadow: -0.25rem 0rem 0 0 v("off-black");
+	background-color: v("watermelon");
+	transform: translate(-50%, calc(100% - 0.2rem));
+}
+
+.select {
+	border: 3px solid var(--text);
+	box-shadow: 0.2em -0.2em 0 0 var(--text);
+	font-family: inherit;
+	background-color: adjust(c("white"), $alpha: -0.2);
+	block-size: 4rem;
+	border-radius: 2rem;
+	font-size: 1.25rem;
+	padding: 0.25rem 1rem;
+	transition: background-color 0.2s ease, box-shadow 0.2s ease;
+	inline-size: min(768px, 100%);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	text-indent: 1px;
+	text-overflow: "";
+
+	&:focus {
+		outline: none;
+		background-color: v("white");
+		box-shadow: -0.2em 0.2em 0 0 var(--text);
+	}
+}
+
+.selectWrapper {
+	position: relative;
+}
+
+.selectArrow {
+	pointer-events: none;
+	inline-size: 1.5rem;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translate(-2rem, -50%);
+}
+
+.checkboxField {
+	display: flex;
+	align-items: start;
+	position: relative;
+}
+
+.inputHidden {
+	@extend %sr-only;
+}
+
+.checkbox {
+	border: 2px solid var(--text);
+	box-shadow: -0.175em 0.175em 0 0 var(--text);
+	inline-size: 1.5rem;
+	block-size: 1.5rem;
+	border-radius: 0.25rem;
+	flex: 0 0 1.5rem;
+	margin-right: 0.5rem;
+	background-color: v("white");
+	position: relative;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0.25rem;
+		left: 0.45rem;
+		inline-size: 0.25rem;
+		block-size: 0.5rem;
+		box-sizing: content-box;
+		border: 0.2rem solid v("summer-blue");
+		border-top: 0;
+		border-left: 0;
+		opacity: 0;
+		transform: rotate(45deg) scaleY(1);
+		transition: opacity 0.2s ease;
+	}
+}
+
+.checkboxChecked {
+	&:before {
+		opacity: 1;
+	}
+}
+.checkboxLabel {
+	font-size: 0.8rem;
+	font-weight: 300;
+	line-height: 1.5;
+	text-align: left;
+}
+
+.checkboxErrors {
+	font-size: 0.75rem;
+	color: v("white");
+	margin-top: 0.5em;
+	font-weight: bold;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	inline-size: calc(100% - 3.5rem);
+	padding: 0.25rem 0.5rem;
+	border-radius: 1rem;
+	border: 0.2rem solid v("off-black");
+	box-shadow: -0.25rem 0 0 0 v("off-black");
+	background-color: v("watermelon");
+
+	transform: translate(-50%, 100%);
+}

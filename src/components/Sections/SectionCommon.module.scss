@@ -1,0 +1,118 @@
+@use '../../styles/functions' as *;
+@use '../../styles/helpers' as *;
+@use "sass:color" as *;
+
+.section {
+	@extend %container;
+	padding-top: size(32px, 72px, 1440);
+	padding-bottom: size(32px, 72px, 1440);
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	place-content: center;
+	place-items: center;
+	gap: 2.5rem;
+	font-size: 1.15rem;
+	color: v("off-black");
+
+	@media screen and (max-width: 1440px) {
+		--container: 768px;
+		grid-template-columns: 1fr;
+		place-items: start stretch;
+	}
+
+	@media screen and (max-width: 768px) {
+		--container: 525px;
+	}
+}
+
+.creditcard {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.5rem;
+	max-inline-size: 8rem;
+
+	@media screen and (max-width: 860px) {
+		display: none;
+	}
+}
+
+.header {
+	margin-top: 1.5rem;
+}
+
+.title {
+	margin-top: 0.65em;
+	max-inline-size: 20ch;
+}
+
+.sectionFreescript {
+	font-size: clamp(1.75rem, (40 / 1024) * 100vw, 2.5rem);
+	line-height: 1.333;
+	max-width: 20ch;
+}
+
+.card {
+	padding: 2.5rem 2.5rem 5.5rem 2.5rem;
+	position: relative;
+	background-color: v("white");
+	margin-top: 1.25rem;
+
+	@media screen and (max-width: 475px) {
+		padding: 1.5rem 1.5rem 5.5rem 1.5rem;
+	}
+}
+
+.cardHeader {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1em;
+	flex-wrap: wrap;
+
+	@supports not (aspect-ratio: 1 / 1) {
+		* + * {
+			margin-left: 1em;
+		}
+	}
+}
+
+.excemptions {
+	background-color: adjust(c("white"), $lightness: -4%);
+	padding: 0.5em;
+	font-weight: bold;
+	font-size: 0.85rem;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.5rem;
+	margin: 0.75rem 0;
+}
+
+.listTitle {
+	text-transform: uppercase;
+	margin-bottom: 0.5em;
+}
+
+.list {
+	li {
+		display: flex;
+
+		&:before {
+			content: "";
+			flex: 0 0 1em;
+			display: inline-block;
+			inline-size: 1em;
+			block-size: 1em;
+			background: url("../../assets/icon-check.png") no-repeat top / contain;
+			margin-right: 0.5em;
+			margin-top: 0.2em;
+		}
+	}
+}
+
+.more {
+	position: absolute;
+	right: -0.1em;
+	bottom: -0.1em;
+	white-space: nowrap;
+}

@@ -1,0 +1,32 @@
+@use '../styles/functions' as *;
+@use "sass:color" as *;
+
+%container {
+	--container: 1680px;
+	padding: 0 max(2rem, 50vw - var(--container) / 2);
+
+	&-bleed-left {
+		padding-right: max(2rem, 50vw - var(--container) / 2);
+	}
+
+	&-bleed-right {
+		padding-left: max(2rem, 50vw - var(--container) / 2);
+	}
+}
+
+%shadow {
+	border: 3px solid var(--text);
+	box-shadow: -0.25em 0.25em 0 0 var(--text);
+}
+
+%sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}

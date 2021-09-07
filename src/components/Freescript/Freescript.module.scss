@@ -1,0 +1,13 @@
+@use '../../styles/functions' as *;
+@use "sass:color" as *;
+
+.freescript {
+	color: v("summer-blue");
+	font-family: "PF FreeScript", cursive;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 1.5;
+	letter-spacing: 1.5px;
+	transform: rotate(-4deg);
+	text-shadow: -0.15em 0.15em adjust(c("off-black"), $alpha: -0.4);
+}

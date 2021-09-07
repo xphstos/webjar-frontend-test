@@ -1,0 +1,8 @@
+@use '../../styles/functions' as *;
+@use '../../styles/helpers' as *;
+@use 'sass:color' as *;
+
+.card {
+	@extend %shadow;
+	border-radius: 1.75rem;
+}

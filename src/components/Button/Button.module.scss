@@ -1,0 +1,89 @@
+@use '../../styles/functions' as *;
+@use '../../styles/helpers' as *;
+@use 'sass:color' as *;
+
+.button {
+	--color: var(--text);
+	--bg-color: var(--white);
+	@extend %shadow;
+	display: inline-flex;
+	gap: 0.5em;
+	align-items: center;
+	justify-content: center;
+	color: v("color");
+	background-color: v("bg-color");
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1rem;
+	line-height: 1;
+	block-size: 4rem;
+	padding: 0.5em 1.25em;
+	user-select: none;
+
+	&:hover,
+	&:focus {
+		box-shadow: -0.1em 0.1em 0 0 v("text");
+	}
+	&:focus {
+		box-shadow: -0.25em 0.3em 0 0 v("text"), 0 0 0 0.5em v("bg-color");
+	}
+
+	&:disabled,
+	[disabled] {
+		pointer-events: none;
+		opacity: 0.75;
+	}
+}
+
+.rounded {
+	border-radius: 3rem;
+	transition: box-shadow 0.2s ease;
+	letter-spacing: 1px;
+}
+
+.droplet {
+	font-size: 1.25rem;
+	border-radius: 1.25rem 0 1.75rem;
+	transition: background-color 0.2s ease, box-shadow 0.2s ease;
+	white-space: nowrap;
+
+	&:hover,
+	&:focus {
+		box-shadow: inherit;
+
+		img {
+			animation-play-state: running;
+		}
+	}
+
+	img {
+		inline-size: 100%;
+		block-size: auto;
+		animation: wiggle 0.5s ease infinite alternate;
+		animation-play-state: paused;
+
+		@media screen and (max-width: 768px) {
+			animation-play-state: running;
+		}
+
+		@keyframes wiggle {
+			to {
+				transform: translateX(20%);
+			}
+		}
+	}
+}
+
+.primary {
+	--bg-color: var(--sand);
+}
+
+.brand {
+	--color: var(--white);
+	--bg-color: var(--brand);
+}
+
+.watermelon {
+	--color: var(--white);
+	--bg-color: var(--watermelon);
+}

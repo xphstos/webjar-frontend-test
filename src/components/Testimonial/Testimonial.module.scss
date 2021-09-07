@@ -1,0 +1,83 @@
+@use '../../styles/functions' as *;
+@use "sass:color" as *;
+
+.blockquote {
+	border-radius: 1.75rem;
+	background-color: v("white");
+	margin: 0;
+	padding: 2rem 3rem;
+	color: v("off-black");
+	user-select: none;
+	width: 100%;
+	max-width: 80vw;
+
+	@media screen and (max-width: 768px) {
+		padding: 2rem;
+	}
+}
+
+.text {
+	opacity: 0.7;
+	position: relative;
+	text-align: left;
+	font-size: 1.25rem;
+	line-height: 1.618;
+	display: flex;
+	gap: 0.25rem;
+
+	&:before,
+	&:after {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+	&:before {
+		content: open-quote;
+	}
+	&:after {
+		content: close-quote;
+		align-self: flex-end;
+	}
+}
+
+.footer {
+	margin-top: size(32px, 48px, 1440);
+	display: grid;
+	grid-template-columns: 4.5rem 1fr;
+	grid-template-areas: "avatar author" "avatar title";
+	align-items: center;
+	justify-content: start;
+	gap: 0.25rem 0.85rem;
+	text-align: left;
+}
+
+.avatar {
+	grid-area: avatar;
+}
+
+.avatarWithNoImage {
+	grid-area: avatar;
+	inline-size: 4.5rem;
+	block-size: 4.5rem;
+	border-radius: 4.5rem;
+	background-color: v("summer-blue");
+	display: inline-flex;
+	font-size: 1.5rem;
+	justify-content: center;
+	align-items: center;
+	line-height: 1;
+	color: adjust(c("summer-blue"), $lightness: -20%);
+}
+
+.authorName {
+	grid-area: author;
+	font-size: 1.25rem;
+	align-self: end;
+}
+.authorTitle {
+	align-self: start;
+	grid-area: title;
+	font-size: 1rem;
+	line-height: 1;
+	margin-top: 0;
+	opacity: 0.7;
+}

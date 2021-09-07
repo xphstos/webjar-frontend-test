@@ -1,0 +1,19 @@
+.badge {
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 1;
+	padding: 0.25rem 0.65rem;
+	color: var(--white);
+	text-align: center;
+	border-radius: 1rem;
+	white-space: nowrap;
+}
+
+.orange {
+	background-color: var(--brand);
+}
+
+.watermelon {
+	background-color: var(--watermelon);
+}

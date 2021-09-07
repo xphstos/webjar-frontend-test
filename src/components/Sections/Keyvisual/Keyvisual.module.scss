@@ -1,0 +1,211 @@
+@use '../../../styles/functions' as *;
+@use '../../../styles/helpers' as *;
+@use "sass:color" as *;
+
+.section {
+	padding: var(--header-height) 0 0;
+	margin-top: calc(var(--header-height) * -1);
+	color: v("white");
+	background: linear-gradient(
+		to top,
+		var(--orange-gradient-1),
+		var(--orange-gradient-2)
+	);
+}
+
+.introSubsection {
+	@extend %container;
+	padding-top: clamp(2rem, 48 / 1440 * 100vw, 3rem);
+	padding-bottom: clamp(2rem, 48 / 1440 * 100vw, 3rem);
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	place-items: center;
+	place-content: center;
+	gap: 1.5rem;
+	block-size: calc(100vh - var(--header-height));
+
+	@media screen and (max-width: 1440px) {
+		block-size: unset;
+	}
+
+	@media screen and (max-width: 1024px) {
+		--container: 768px;
+		grid-template-columns: 1fr;
+		place-items: start stretch;
+	}
+}
+
+.introHeader {
+	max-width: 40rem;
+	padding: 2em size(32px, 64px, 1440);
+
+	@media screen and (max-width: 1024px) {
+		max-width: unset;
+	}
+
+	@media screen and (max-width: 525px) {
+		padding: 0 0 2rem 0;
+	}
+}
+
+.introTitle {
+	margin-top: 0;
+	max-width: 15ch;
+	line-height: 1.2;
+	margin-bottom: 0.8em;
+}
+
+.introHeaderTop {
+	margin-bottom: 1.5em;
+	position: relative;
+
+	svg {
+		position: absolute;
+		top: 0;
+		right: 0;
+		max-inline-size: 8rem;
+		block-size: auto;
+		transform: translate(0%, -80%) rotate(-4deg);
+		transform-origin: center;
+		filter: drop-shadow(0.1rem 0.15rem 0 var(--off-black));
+		animation: swivel 0.1s ease-in-out infinite alternate paused;
+
+		@media screen and (max-width: 1024px) {
+			transform: translate(0%, -40%) rotate(-4deg);
+		}
+
+		@media screen and (max-width: 525px) {
+			max-inline-size: 6rem;
+			transform: translate(20%, -30%) rotate(-4deg);
+		}
+
+		&:hover {
+			animation-play-state: running;
+		}
+
+		@keyframes swivel {
+			to {
+				transform: translate(0%, -80%) rotate(-12deg);
+			}
+		}
+	}
+}
+
+.introFree {
+	font-size: 1.5rem;
+}
+
+.introScroller {
+	grid-area: auto / span 2;
+	text-align: center;
+	color: v("text");
+
+	@media screen and (max-width: 1024px) {
+		grid-area: initial;
+	}
+}
+
+.scrollForMore {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0.25em;
+
+	span {
+		flex: 0 0 100%;
+		text-transform: uppercase;
+		font-size: 0.85rem;
+		font-weight: bold;
+		line-height: 1;
+	}
+
+	svg {
+		inline-size: 1em;
+		height: auto;
+		vertical-align: middle;
+		transform: translateY(0%);
+		animation: bounce 0.5s infinite alternate ease-in-out;
+
+		@keyframes bounce {
+			to {
+				transform: translateY(20%);
+			}
+		}
+	}
+}
+
+.happyHealthySubsection {
+	padding-top: clamp(2rem, (116 / 1440) * 100vw, var(--header-height));
+	padding-bottom: clamp(2rem, (116 / 1440) * 100vw, var(--header-height));
+}
+
+.happyHealthyHeader {
+	@extend %container;
+	text-align: center;
+	margin-bottom: size(32px, 72px, 1440);
+}
+
+.happyHealthyDescription {
+	font-size: size(16px, 24px, 1024);
+	margin-top: 1.25rem;
+}
+
+.cardSlider {
+	@extend %container;
+	padding-top: 1rem;
+
+	[class*="swiper-slide"] {
+		padding: 0 0 0.25rem 0.3rem;
+		align-self: stretch;
+		inline-size: 320px;
+	}
+}
+
+.card {
+	display: grid;
+	grid-auto-flow: row;
+	padding: 1.5rem 1.5rem 0;
+	background-color: adjust(c("white"), $alpha: -0.5);
+	color: v("text");
+	transition: background-color 0.2s ease;
+	overflow: hidden;
+	text-align: center;
+
+	&:hover {
+		background-color: v("white");
+
+		.learnMore {
+			transform: translateY(0.25rem);
+		}
+	}
+}
+
+.cardImage {
+	display: block;
+	margin: 0 auto;
+}
+
+.cardDescription {
+	margin-top: 1em;
+	font-size: 1.15rem;
+	line-height: 1.2;
+	opacity: 0.8;
+	min-height: calc(18px * 1.2 * 2);
+}
+
+.learnMore {
+	@extend %shadow;
+	block-size: 2.5rem;
+	font-size: 1rem;
+	font-weight: bold;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	background-color: v("sand");
+	border-radius: 0.85rem 0.85rem 0 0;
+	text-transform: uppercase;
+	padding: 1rem 2.5rem;
+	transition: transform 0.2s ease;
+	transform: translateY(100%);
+}

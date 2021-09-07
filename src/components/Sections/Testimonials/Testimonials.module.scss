@@ -1,0 +1,71 @@
+@use '../../../styles/functions' as *;
+@use '../../../styles/helpers' as *;
+@use "sass:color" as *;
+
+.section {
+	background-color: v("sand-light");
+	padding-top: size(32px, 72px, 1440);
+	padding-bottom: size(32px, 72px, 1440);
+	text-align: center;
+	color: v("text");
+}
+
+.header {
+	margin-bottom: 3.5rem;
+}
+
+.title {
+	margin-bottom: 1rem;
+}
+
+.description {
+	margin: 0 auto;
+	font-size: 1.25rem;
+}
+
+.testimonialsWrapper {
+	padding: 0 2rem;
+
+	@media screen and (max-width: 1024px) {
+		padding: 0;
+	}
+}
+
+.testimonials {
+	max-inline-size: 1440px;
+	margin: 0 auto;
+	padding-bottom: 3rem;
+
+	@media screen and (max-width: 1024px) {
+		padding: 0 max(2rem, 50vw - 1440px / 2) 2.5rem;
+		max-inline-size: unset;
+		margin: unset;
+		overflow-y: initial;
+	}
+
+	[class*="swiper-slide"] {
+		inline-size: 50%;
+
+		@media screen and (max-width: 1024px) {
+			inline-size: unset;
+		}
+	}
+
+	[class*="swiper-pagination"] {
+		bottom: 0;
+
+		[class*="swiper-pagination-bullet"] {
+			opacity: 1;
+			background: adjust(c("white"), $alpha: -0.5);
+		}
+		[class*="swiper-pagination-bullet-active"] {
+			background: v("white");
+			border-radius: 1rem;
+			inline-size: 2rem;
+
+			@media screen and (max-width: 1024px) {
+				inline-size: 0.5rem;
+			}
+		}
+	}
+}
